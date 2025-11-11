@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Controle de Abastecimento</h2>
+
+  <div class="formulario">
+    <label for="tipo">Tipo de Combustível:</label>
+    <select id="tipo" [(ngModel)]="tipoCombustivel">
+      <option value="">Selecione</option>
+      <option value="Gasolina">Gasolina</option>
+      <option value="Etanol">Etanol</option>
+      <option value="Diesel">Diesel</option>
+    </select>
+
+    <label for="valor">Valor por litro:</label>
+    <input id="valor" type="number" [(ngModel)]="valorLitro" placeholder="Ex: 5.89" />
+
+    <label for="quantidade">Quantidade abastecida (litros):</label>
+    <input id="quantidade" type="number" [(ngModel)]="quantidadeLitros" placeholder="Ex: 40" />
+
+    <label for="data">Data do abastecimento:</label>
+    <input id="data" type="date" [(ngModel)]="dataAbastecimento" />
+
+    <button (click)="calcularTotal()">Calcular Total</button>
+  </div>
+
+  <div *ngIf="mostrarResumo" class="resultado" [ngClass]="obterClasseCombustivel()">
+    <h3>Resumo do Abastecimento</h3>
+    <p><strong>Combustível:</strong> {{ tipoCombustivel }}</p>
+    <p><strong>Data:</strong> {{ dataAbastecimento | date:'dd/MM/yyyy' }}</p>
+    <p><strong>Valor do litro:</strong> {{ valorLitro | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+    <p><strong>Quantidade:</strong> {{ quantidadeLitros | number:'1.0-2' }} litros</p>
+    <p class="total"><strong>Total:</strong> {{ valorTotal | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+  </div>
+</div>

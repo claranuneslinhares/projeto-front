@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ControleAbastecimentoComponent } from './controle-abastecimento/controle-abastecimento.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ ControleAbastecimentoComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
